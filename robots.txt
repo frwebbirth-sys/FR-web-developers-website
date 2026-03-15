@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://frwebbirth-sys.github.io/FR-web-developers-website/sitemap.xml
