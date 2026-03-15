@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Free Website Design Quote | F.R Web Developers</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Get a free website design quote from F.R Web Developers. Expert web development services for your business needs.">
+<meta property="og:title" content="Free Website Design Quote | F.R Web Developers">
+<meta property="og:description" content="Get a free website design quote from F.R Web Developers. Expert web development services for your business needs.">
+<meta property="og:image" content="https://yourdomain.com/images/logo.webp">
+<meta property="og:url" content="https://yourdomain.com/quote.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "F.R Web Developers",
+  "description": "Professional website design and development services for small businesses.",
+  "url": "https://yourdomain.com",
+  "logo": "https://yourdomain.com/images/logo.webp",
+  "serviceType": "Website Design, Web Development",
+  "areaServed": "Global",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+1-XXX-XXX-XXXX",
+    "contactType": "Customer Service"
+  }
+}
+</script>
+<link rel="stylesheet" href="styles.css">
+
+<script>
+let pageCount=0;
+function addPage(){
+    pageCount++;
+    let container=document.getElementById("pagesContainer");
+    let div=document.createElement("div");
+    div.className="pageRow";
+    div.innerHTML=`
+        <label>Page Type</label>
+        <select onchange="toggleCustom(this)">
+            <option>index Page</option>
+            <option>Services Page</option>
+            <option>Products Page</option>
+            <option>Contact Page</option>
+            <option>About Page</option>
+            <option>Custom Page</option>
+        </select>
+        <div class="customInput">
+            <label>Custom Page Name</label>
+            <input type="text">
+        </div>
+        <button type="button" class="deleteBtn" onclick="deletePage(this)">Remove Page</button>
+    `;
+    container.appendChild(div);
+}
+function deletePage(btn){btn.parentElement.remove();}
+function toggleCustom(select){
+    let customBox=select.parentElement.querySelector(".customInput");
+    customBox.style.display = (select.value === "Custom Page")?"block":"none";
+}
+function submitQuote(event){
+    event.preventDefault();
+    let name=document.getElementById("name").value.trim();
+    let surname=document.getElementById("surname").value.trim();
+    let email=document.getElementById("email").value.trim();
+    let phone=document.getElementById("phone").value.trim();
+    let org=document.getElementById("org").value.trim();
+    let role=document.getElementById("role").value.trim();
+    let notes=document.getElementById("additionalNotes").value.trim();
+    if(!name||!surname||!email||!phone||!org||!role){alert("Please fill in all required fields."); return;}
+    let emailPattern=/^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+    if(!email.match(emailPattern)){alert("Enter a valid email address."); return;}
+    let pages=document.querySelectorAll(".pageRow");
+    if(pages.length===0){alert("Please add at least one page."); return;}
+    let pageList="";
+    pages.forEach((row,i)=>{
+        let select=row.querySelector("select").value;
+        let customInput=row.querySelector(".customInput input");
+        pageList += "Page "+(i+1)+": "+((select==="Custom Page")?customInput.value.trim():select)+"\n";
+    });
+    let subject="GET QUOTE";
+    let body="Client Quote Request\n\n"+
+             "Name: "+name+" "+surname+"\n"+
+             "Email: "+email+"\n"+
+             "Phone: "+phone+"\n"+
+             "Organisation: "+org+"\n"+
+             "Role/Type: "+role+"\n\n"+
+             "Additional Notes:\n"+notes+"\n\n"+
+             "Requested Pages:\n"+pageList;
+    let link="https://mail.google.com/mail/?view=cm&fs=1&to=frwebbirth@gmail.com&su="+encodeURIComponent(subject)+"&body="+encodeURIComponent(body);
+    window.open(link,"_blank");
+}
+
+</script>
+</head>
+<body>
+
+<header>
+<h1>F.R Web Developers</h1>
+<nav>
+<a href="index.html">index</a>
+<a href="services.htm">Services</a>
+<a href="contact.html">Contact</a>
+<a href="quote.html">Get a Quote</a>
+</nav>
+</header>
+
+<div class="container">
+<h1>Request a Quote</h1>
+<form onsubmit="submitQuote(event)">
+<label>First Name</label>
+<input type="text" id="name" required>
+<label>Surname</label>
+<input type="text" id="surname" required>
+<label>Email</label>
+<input type="email" id="email" required>
+<label>Phone Number</label>
+<input type="text" id="phone" required>
+<label>Organisation Name</label>
+<input type="text" id="org" required>
+<label>Organizational Role / Business Industry</label>
+<input type="text" id="role" required>
+<label>Additional Notes</label>
+<textarea id="additionalNotes"></textarea>
+
+<h3>Website Pages</h3>
+<div id="pagesContainer"></div>
+
+<button type="button" class="addBtn" onclick="addPage()">Add Page</button>
+<button type="submit" class="submitBtn">Submit Quote</button>
+</form>
+</div>
+
+<footer>
+<p>© 2026 F.R Web Developers</p>
+</footer>
+
+</body>
+</html>
