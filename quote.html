@@ -93,31 +93,17 @@ function submitQuote(event){
     let org=document.getElementById("org").value.trim();
     let role=document.getElementById("role").value.trim();
     let notes=document.getElementById("additionalNotes").value.trim();
-    
-    if(!name||!surname||!email||!phone||!org||!role){
-        alert("Please fill in all required fields."); 
-        return;
-    }
-
+    if(!name||!surname||!email||!phone||!org||!role){alert("Please fill in all required fields."); return;}
     let emailPattern=/^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
-    if(!email.match(emailPattern)){
-        alert("Enter a valid email address."); 
-        return;
-    }
-
+    if(!email.match(emailPattern)){alert("Enter a valid email address."); return;}
     let pages=document.querySelectorAll(".pageRow");
-    if(pages.length===0){
-        alert("Please add at least one page."); 
-        return;
-    }
-
+    if(pages.length===0){alert("Please add at least one page."); return;}
     let pageList="";
     pages.forEach((row,i)=>{
         let select=row.querySelector("select").value;
         let customInput=row.querySelector(".customInput input");
         pageList += "Page "+(i+1)+": "+((select==="Custom Page")?customInput.value.trim():select)+"\n";
     });
-
     let subject="GET QUOTE";
     let body="Client Quote Request\n\n"+
              "Name: "+name+" "+surname+"\n"+
@@ -127,10 +113,8 @@ function submitQuote(event){
              "Role/Type: "+role+"\n\n"+
              "Additional Notes:\n"+notes+"\n\n"+
              "Requested Pages:\n"+pageList;
-
-    // Use mailto: for default email client
-    let mailtoLink = "mailto:frwebbirth@gmail.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
-    window.location.href = mailtoLink; // opens default email app
+    let link="https://mail.google.com/mail/?view=cm&fs=1&to=frwebbirth@gmail.com&su="+encodeURIComponent(subject)+"&body="+encodeURIComponent(body);
+    window.open(link,"_blank");
 }
 
 </script>
@@ -141,7 +125,7 @@ function submitQuote(event){
 <h1>F.R Web Developers</h1>
 <nav>
 <a href="index.html">home</a>
-<a href="services.htm">Services</a>
+<a href="services.html">Services</a>
 <a href="contact.html">Contact</a>
 <a href="quote.html">Get a Quote</a>
 </nav>
