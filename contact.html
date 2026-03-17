@@ -7,8 +7,8 @@
 <meta name="description" content="Contact F.R Web Developers for professional website design services. Discuss your project and get a free quote today.">
 <meta property="og:title" content="Contact F.R Web Developers | Website Design Quotes">
 <meta property="og:description" content="Contact F.R Web Developers for professional website design services. Discuss your project and get a free quote today.">
-<meta property="og:image" content="https://https://frwebbirth-sys.github.io/FR-web-developers-website/images/logo.webp">
-<meta property="og:url" content="https://https://frwebbirth-sys.github.io/FR-web-developers-website/contact.html">
+<meta property="og:image" content="https://frwebbirth-sys.github.io/FR-web-developers-website/images/logo.webp">
+<meta property="og:url" content="https://frwebbirth-sys.github.io/FR-web-developers-website/contact.html">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -18,8 +18,8 @@
   "url": "https://frwebbirth-sys.github.io/FR-web-developers-website/",
   "logo": "https://frwebbirth-sys.github.io/FR-web-developers-website/images/logo.webp",
   "email": "frwebbirth@gmail.com",
-  "telephone": "+27-21-123-4567",
-  "serviceType": ["Website Design", "Web Development", "SEO Optimization", ""],
+  "telephone": "+27-67-291-9355",
+  "serviceType": ["Website Design", "Web Development", "SEO Optimization"],
   "areaServed": "Global",
   "contactPoint": {
     "@type": "ContactPoint",
@@ -29,53 +29,172 @@
   }
 }
 </script>
-
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://frwebbirth-sys.github.io/FR-web-developers-website/index.html"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Contact",
-      "item": "https://frwebbirth-sys.github.io/FR-web-developers-website/contact.html"
-    }
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://frwebbirth-sys.github.io/FR-web-developers-website/index.html"},
+    {"@type":"ListItem","position":2,"name":"Contact","item":"https://frwebbirth-sys.github.io/FR-web-developers-website/contact.html"}
   ]
 }
 </script>
 
-<link rel="stylesheet" href="styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #0a0a0f; --ink-2: #2d2d3a; --ink-3: #6b6b80;
+    --paper: #f5f4f0; --paper-2: #eceae4;
+    --accent: #1a1aff; --green: #00b066; --white: #ffffff;
+    --font-display: 'Syne', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-body); background: var(--paper); color: var(--ink); overflow-x: hidden; line-height: 1.6; }
+  a { text-decoration: none; color: inherit; }
+
+  body::before {
+    content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 9999; opacity: .025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
+  }
+
+  header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 48px; height: 72px;
+    background: rgba(245,244,240,0.85); backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(10,10,15,0.08);
+  }
+  .logo { font-family: var(--font-display); font-size: 1.15rem; font-weight: 800; letter-spacing: -0.02em; display: flex; align-items: center; gap: 10px; }
+  .logo-dot { width: 8px; height: 8px; background: var(--accent); border-radius: 50%; display: inline-block; }
+  nav { display: flex; align-items: center; gap: 8px; }
+  nav a { font-size: 0.875rem; font-weight: 500; color: var(--ink-2); padding: 8px 16px; border-radius: 999px; transition: background 0.2s; }
+  nav a:hover { background: var(--paper-2); }
+  nav .nav-cta { background: var(--ink); color: var(--white); padding: 8px 20px; }
+  nav .nav-cta:hover { background: var(--accent); }
+
+  .page-hero {
+    padding: 160px 48px 100px; background: var(--ink); color: var(--white);
+    position: relative; overflow: hidden; text-align: center;
+  }
+  .page-hero::after { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 70% at 50% 120%, rgba(26,26,255,0.25), transparent); pointer-events: none; }
+  .page-hero-eyebrow { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 20px; }
+  .page-hero h1 { font-family: var(--font-display); font-size: clamp(2.2rem, 4vw, 3.5rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.08; color: var(--white); margin-bottom: 20px; position: relative; z-index: 1; }
+  .page-hero p { font-size: 1.05rem; color: rgba(255,255,255,0.55); max-width: 560px; margin: 0 auto; position: relative; z-index: 1; }
+
+  /* CONTACT SECTION */
+  .contact-section { padding: 100px 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; max-width: 1100px; margin: 0 auto; }
+
+  .contact-intro h2 { font-family: var(--font-display); font-size: 1.8rem; font-weight: 800; letter-spacing: -0.03em; color: var(--ink); margin-bottom: 20px; }
+  .contact-intro p { font-size: 0.95rem; color: var(--ink-3); line-height: 1.75; }
+
+  .contact-methods { display: flex; flex-direction: column; gap: 16px; }
+
+  .contact-card {
+    background: var(--white); border: 1px solid rgba(10,10,15,0.07);
+    border-radius: 16px; padding: 28px 32px;
+    display: flex; align-items: center; gap: 20px;
+    transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+  }
+  .contact-card:hover { border-color: rgba(26,26,255,0.2); transform: translateX(6px); box-shadow: 0 8px 32px rgba(10,10,15,0.06); }
+
+  .contact-card-icon {
+    width: 48px; height: 48px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem; flex-shrink: 0;
+  }
+  .icon-phone { background: rgba(26,26,255,0.08); }
+  .icon-email { background: rgba(200,168,75,0.12); }
+  .icon-whatsapp { background: rgba(0,176,102,0.1); }
+
+  .contact-card-label { font-size: 0.78rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-3); margin-bottom: 4px; }
+  .contact-card-value { font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--ink); }
+
+  .btn-whatsapp {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--green); color: var(--white);
+    padding: 14px 28px; border-radius: 999px;
+    font-family: var(--font-body); font-size: 0.9rem; font-weight: 500;
+    transition: all 0.25s var(--ease-out); margin-top: 24px;
+  }
+  .btn-whatsapp:hover { background: #008f52; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,176,102,0.3); }
+
+  footer { background: var(--ink); color: var(--white); padding: 40px 48px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+  footer p { font-size: 0.875rem; color: rgba(255,255,255,0.4); }
+  footer a { color: rgba(255,255,255,0.7); border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 1px; }
+  footer a:hover { color: var(--white); }
+  .footer-logo { font-family: var(--font-display); font-size: 1rem; font-weight: 800; color: var(--white); }
+
+  @media (max-width: 900px) {
+    header { padding: 0 24px; }
+    nav a:not(.nav-cta) { display: none; }
+    .page-hero { padding: 130px 24px 80px; }
+    .contact-section { grid-template-columns: 1fr; gap: 48px; padding: 60px 24px; }
+    footer { padding: 32px 24px; flex-direction: column; align-items: flex-start; }
+  }
+</style>
 </head>
 <body>
 
 <header>
-<h1>F.R Web Developers</h1>
-<nav>
-<a href="index.html">home</a>
-<a href="services.html">Services</a>
-<a href="contact.html">Contact</a>
-<a href="quote.html">Get a Quote</a>
-</nav>
+  <div class="logo"><span class="logo-dot"></span>F.R Web Developers</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="contact.html">Contact</a>
+    <a href="quote.html" class="nav-cta">Get a Quote</a>
+  </nav>
 </header>
 
-<section class="contact-section">
-<h2>Contact Us</h2>
-<div class="contact-box">
-<p><strong>Phone:</strong> <a href="tel:+27672919355">067 291 9355</a></p>
-<p><strong>Email:</strong> <a href="https://mail.google.com/mail/?view=cm&fs=1&to=frwebbirth@gmail.com" target="_blank">frwebbirth@gmail.com</a></p>
-<a href="https://wa.me/27672919355" class="btn whatsapp" target="_blank">Chat on WhatsApp</a>
+<div class="page-hero">
+  <div class="page-hero-eyebrow">Get in touch</div>
+  <h1>Contact Us</h1>
+  <p>We'd love to hear about your project. Reach out via phone, email, or WhatsApp and we'll get back to you promptly.</p>
 </div>
-</section>
+
+<div class="contact-section">
+  <div class="contact-intro">
+    <h2>Let's build something great together.</h2>
+    <p>Whether you're ready to start your project or just have a question, we're here to help. Choose the contact method that works best for you.</p>
+    <a href="https://wa.me/27672919355" class="btn-whatsapp" target="_blank">
+      💬 Chat on WhatsApp
+    </a>
+  </div>
+
+  <div class="contact-methods">
+    <a href="tel:+27672919355" class="contact-card">
+      <div class="contact-card-icon icon-phone">📞</div>
+      <div>
+        <div class="contact-card-label">Phone</div>
+        <div class="contact-card-value">067 291 9355</div>
+      </div>
+    </a>
+    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=frwebbirth@gmail.com" target="_blank" class="contact-card">
+      <div class="contact-card-icon icon-email">✉️</div>
+      <div>
+        <div class="contact-card-label">Email</div>
+        <div class="contact-card-value">frwebbirth@gmail.com</div>
+      </div>
+    </a>
+    <a href="https://wa.me/27672919355" target="_blank" class="contact-card">
+      <div class="contact-card-icon icon-whatsapp">💬</div>
+      <div>
+        <div class="contact-card-label">WhatsApp</div>
+        <div class="contact-card-value">+27 67 291 9355</div>
+      </div>
+    </a>
+  </div>
+</div>
 
 <footer>
-<p>© 2026 F.R Web Developers</p>
+  <div class="footer-logo">F.R Web Developers</div>
+  <p>© 2026 F.R Web Developers</p>
 </footer>
 
 </body>

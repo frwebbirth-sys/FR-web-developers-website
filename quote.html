@@ -10,7 +10,6 @@
 <meta property="og:image" content="https://frwebbirth-sys.github.io/FR-web-developers-website/images/logo.webp">
 <meta property="og:url" content="https://frwebbirth-sys.github.io/FR-web-developers-website/quote.html">
 <script type="application/ld+json">
-<script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
@@ -19,147 +18,341 @@
   "url": "https://frwebbirth-sys.github.io/FR-web-developers-website/",
   "logo": "https://frwebbirth-sys.github.io/FR-web-developers-website/images/logo.webp",
   "email": "frwebbirth@gmail.com",
-  "telephone": "+27-21-123-4567",
-  "serviceType": ["Website Design", "Web Development", "SEO Optimization", ""],
+  "telephone": "+27-67-291-9355",
+  "serviceType": ["Website Design", "Web Development", "SEO Optimization"],
   "areaServed": "Global",
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "telephone": "+27-67-291-9355",
-    "contactType": "Customer Service",
-    "email": "frwebbirth@gmail.com"
-  }
+  "contactPoint": { "@type": "ContactPoint", "telephone": "+27-67-291-9355", "contactType": "Customer Service", "email": "frwebbirth@gmail.com" }
 }
 </script>
-
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://frwebbirth-sys.github.io/FR-web-developers-website/index.html"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "quote",
-      "item": "https://frwebbirth-sys.github.io/FR-web-developers-website/quote.html"
-    }
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://frwebbirth-sys.github.io/FR-web-developers-website/index.html"},
+    {"@type":"ListItem","position":2,"name":"Get a Quote","item":"https://frwebbirth-sys.github.io/FR-web-developers-website/quote.html"}
   ]
 }
 </script>
 
-<link rel="stylesheet" href="styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 
-<script>
-let pageCount=0;
-function addPage(){
-    pageCount++;
-    let container=document.getElementById("pagesContainer");
-    let div=document.createElement("div");
-    div.className="pageRow";
-    div.innerHTML=`
-        <label>Page Type</label>
-        <select onchange="toggleCustom(this)">
-            <option>index Page</option>
-            <option>Services Page</option>
-            <option>Products Page</option>
-            <option>Contact Page</option>
-            <option>About Page</option>
-            <option>Custom Page</option>
-        </select>
-        <div class="customInput">
-            <label>Custom Page Name</label>
-            <input type="text">
-        </div>
-        <button type="button" class="deleteBtn" onclick="deletePage(this)">Remove Page</button>
-    `;
-    container.appendChild(div);
-}
-function deletePage(btn){btn.parentElement.remove();}
-function toggleCustom(select){
-    let customBox=select.parentElement.querySelector(".customInput");
-    customBox.style.display = (select.value === "Custom Page")?"block":"none";
-}
-function submitQuote(event){
-    event.preventDefault();
-    let name=document.getElementById("name").value.trim();
-    let surname=document.getElementById("surname").value.trim();
-    let email=document.getElementById("email").value.trim();
-    let phone=document.getElementById("phone").value.trim();
-    let org=document.getElementById("org").value.trim();
-    let role=document.getElementById("role").value.trim();
-    let notes=document.getElementById("additionalNotes").value.trim();
-    if(!name||!surname||!email||!phone||!org||!role){alert("Please fill in all required fields."); return;}
-    let emailPattern=/^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
-    if(!email.match(emailPattern)){alert("Enter a valid email address."); return;}
-    let pages=document.querySelectorAll(".pageRow");
-    if(pages.length===0){alert("Please add at least one page."); return;}
-    let pageList="";
-    pages.forEach((row,i)=>{
-        let select=row.querySelector("select").value;
-        let customInput=row.querySelector(".customInput input");
-        pageList += "Page "+(i+1)+": "+((select==="Custom Page")?customInput.value.trim():select)+"\n";
-    });
-    let subject="GET QUOTE";
-    let body="Client Quote Request\n\n"+
-             "Name: "+name+" "+surname+"\n"+
-             "Email: "+email+"\n"+
-             "Phone: "+phone+"\n"+
-             "Organisation: "+org+"\n"+
-             "Role/Type: "+role+"\n\n"+
-             "Additional Notes:\n"+notes+"\n\n"+
-             "Requested Pages:\n"+pageList;
-    let link="https://mail.google.com/mail/?view=cm&fs=1&to=frwebbirth@gmail.com&su="+encodeURIComponent(subject)+"&body="+encodeURIComponent(body);
-    window.open(link,"_blank");
-}
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #0a0a0f; --ink-2: #2d2d3a; --ink-3: #6b6b80;
+    --paper: #f5f4f0; --paper-2: #eceae4;
+    --accent: #1a1aff; --white: #ffffff;
+    --red: #ff3b3b; --green: #00b066;
+    --font-display: 'Syne', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-body); background: var(--paper); color: var(--ink); overflow-x: hidden; line-height: 1.6; }
+  a { text-decoration: none; color: inherit; }
 
-</script>
+  body::before {
+    content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 9999; opacity: .025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
+  }
+
+  header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 48px; height: 72px;
+    background: rgba(245,244,240,0.85); backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(10,10,15,0.08);
+  }
+  .logo { font-family: var(--font-display); font-size: 1.15rem; font-weight: 800; letter-spacing: -0.02em; display: flex; align-items: center; gap: 10px; }
+  .logo-dot { width: 8px; height: 8px; background: var(--accent); border-radius: 50%; display: inline-block; }
+  nav { display: flex; align-items: center; gap: 8px; }
+  nav a { font-size: 0.875rem; font-weight: 500; color: var(--ink-2); padding: 8px 16px; border-radius: 999px; transition: background 0.2s; }
+  nav a:hover { background: var(--paper-2); }
+  nav .nav-cta { background: var(--ink); color: var(--white); padding: 8px 20px; }
+  nav .nav-cta:hover { background: var(--accent); }
+
+  .page-hero { padding: 160px 48px 100px; background: var(--ink); color: var(--white); position: relative; overflow: hidden; text-align: center; }
+  .page-hero::after { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 70% at 50% 120%, rgba(26,26,255,0.25), transparent); pointer-events: none; }
+  .page-hero-eyebrow { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 20px; }
+  .page-hero h1 { font-family: var(--font-display); font-size: clamp(2.2rem, 4vw, 3.5rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.08; color: var(--white); margin-bottom: 20px; position: relative; z-index: 1; }
+  .page-hero p { font-size: 1.05rem; color: rgba(255,255,255,0.55); max-width: 480px; margin: 0 auto; position: relative; z-index: 1; }
+
+  /* FORM */
+  .form-section { padding: 80px 48px; max-width: 780px; margin: 0 auto; }
+
+  .form-card {
+    background: var(--white);
+    border: 1px solid rgba(10,10,15,0.07);
+    border-radius: 24px;
+    padding: 56px;
+  }
+
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 28px; }
+  .form-grid .full { grid-column: 1 / -1; }
+
+  .field { display: flex; flex-direction: column; gap: 8px; }
+  .field label { font-size: 0.82rem; font-weight: 500; color: var(--ink-2); letter-spacing: 0.02em; }
+  .field label span { color: var(--accent); }
+
+  .field input,
+  .field select,
+  .field textarea {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--ink);
+    background: var(--paper);
+    border: 1.5px solid rgba(10,10,15,0.1);
+    border-radius: 10px;
+    padding: 11px 16px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+    width: 100%;
+  }
+  .field input:focus,
+  .field select:focus,
+  .field textarea:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(26,26,255,0.08);
+    background: var(--white);
+  }
+  .field textarea { resize: vertical; min-height: 100px; }
+
+  /* PAGES SECTION */
+  .pages-divider {
+    border: none; border-top: 1px solid rgba(10,10,15,0.07);
+    margin: 36px 0 28px;
+  }
+  .pages-header {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 16px;
+  }
+  .pages-title { font-family: var(--font-display); font-size: 1rem; font-weight: 800; color: var(--ink); }
+  .pages-subtitle { font-size: 0.82rem; color: var(--ink-3); margin-top: 2px; }
+
+  #pagesContainer { display: flex; flex-direction: column; gap: 12px; }
+
+  .pageRow {
+    background: var(--paper);
+    border: 1.5px solid rgba(10,10,15,0.08);
+    border-radius: 12px;
+    padding: 20px 24px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 12px 16px;
+    align-items: start;
+    transition: border-color 0.2s;
+  }
+  .pageRow:hover { border-color: rgba(10,10,15,0.16); }
+
+  .pageRow-fields { display: flex; flex-direction: column; gap: 10px; }
+  .pageRow select, .pageRow input {
+    font-family: var(--font-body); font-size: 0.875rem; color: var(--ink);
+    background: var(--white); border: 1.5px solid rgba(10,10,15,0.1); border-radius: 8px;
+    padding: 9px 14px; outline: none; width: 100%; transition: border-color 0.2s;
+  }
+  .pageRow select:focus, .pageRow input:focus { border-color: var(--accent); }
+  .pageRow label { font-size: 0.78rem; font-weight: 500; color: var(--ink-3); margin-bottom: 4px; display: block; }
+  .customInput { display: none; }
+
+  .deleteBtn {
+    background: none; border: 1.5px solid rgba(10,10,15,0.1); color: var(--ink-3);
+    width: 32px; height: 32px; border-radius: 8px; cursor: pointer; font-size: 1rem;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s; flex-shrink: 0; align-self: flex-start; margin-top: 0; font-family: var(--font-body);
+  }
+  .deleteBtn:hover { background: rgba(255,59,59,0.08); border-color: var(--red); color: var(--red); }
+
+  .addBtn {
+    width: 100%; margin-top: 12px; padding: 11px 20px;
+    font-family: var(--font-body); font-size: 0.875rem; font-weight: 500; color: var(--accent);
+    background: rgba(26,26,255,0.05); border: 1.5px dashed rgba(26,26,255,0.2); border-radius: 10px;
+    cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: center; gap: 6px;
+  }
+  .addBtn:hover { background: rgba(26,26,255,0.09); border-color: var(--accent); }
+
+  .submitBtn {
+    width: 100%; margin-top: 32px; padding: 16px 28px;
+    font-family: var(--font-display); font-size: 1rem; font-weight: 700;
+    background: var(--ink); color: var(--white); border: none; border-radius: 12px;
+    cursor: pointer; transition: all 0.25s var(--ease-out); letter-spacing: -0.01em;
+  }
+  .submitBtn:hover { background: var(--accent); transform: translateY(-2px); box-shadow: 0 12px 32px rgba(26,26,255,0.2); }
+
+  footer { background: var(--ink); color: var(--white); padding: 40px 48px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; margin-top: 80px; }
+  footer p { font-size: 0.875rem; color: rgba(255,255,255,0.4); }
+  .footer-logo { font-family: var(--font-display); font-size: 1rem; font-weight: 800; color: var(--white); }
+
+  @media (max-width: 900px) {
+    header { padding: 0 24px; }
+    nav a:not(.nav-cta) { display: none; }
+    .page-hero { padding: 130px 24px 80px; }
+    .form-section { padding: 48px 20px; }
+    .form-card { padding: 32px 24px; }
+    .form-grid { grid-template-columns: 1fr; }
+    footer { padding: 32px 24px; flex-direction: column; align-items: flex-start; }
+  }
+</style>
 </head>
 <body>
 
 <header>
-<h1>F.R Web Developers</h1>
-<nav>
-<a href="index.html">home</a>
-<a href="services.html">Services</a>
-<a href="contact.html">Contact</a>
-<a href="quote.html">Get a Quote</a>
-</nav>
+  <div class="logo"><span class="logo-dot"></span>F.R Web Developers</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="contact.html">Contact</a>
+    <a href="quote.html" class="nav-cta">Get a Quote</a>
+  </nav>
 </header>
 
-<div class="container">
-<h1>Request a Quote</h1>
-<form onsubmit="submitQuote(event)">
-<label>First Name</label>
-<input type="text" id="name" required>
-<label>Surname</label>
-<input type="text" id="surname" required>
-<label>Email</label>
-<input type="email" id="email" required>
-<label>Phone Number</label>
-<input type="text" id="phone" required>
-<label>Organisation Name</label>
-<input type="text" id="org" required>
-<label>Organizational Role / Business Industry</label>
-<input type="text" id="role" required>
-<label>Additional Notes</label>
-<textarea id="additionalNotes"></textarea>
+<div class="page-hero">
+  <div class="page-hero-eyebrow">Free consultation</div>
+  <h1>Request a Quote</h1>
+  <p>Fill in the details below and we'll get back to you with a tailored proposal for your project.</p>
+</div>
 
-<h3>Website Pages</h3>
-<div id="pagesContainer"></div>
+<div class="form-section">
+  <div class="form-card">
+    <form onsubmit="submitQuote(event)">
+      <div class="form-grid">
 
-<button type="button" class="addBtn" onclick="addPage()">Add Page</button>
-<button type="submit" class="submitBtn">Submit Quote</button>
-</form>
+        <div class="field">
+          <label>First Name <span>*</span></label>
+          <input type="text" id="name" placeholder="e.g. John" required>
+        </div>
+        <div class="field">
+          <label>Surname <span>*</span></label>
+          <input type="text" id="surname" placeholder="e.g. Smith" required>
+        </div>
+        <div class="field">
+          <label>Email Address <span>*</span></label>
+          <input type="email" id="email" placeholder="you@company.com" required>
+        </div>
+        <div class="field">
+          <label>Phone Number <span>*</span></label>
+          <input type="text" id="phone" placeholder="+27 xx xxx xxxx" required>
+        </div>
+        <div class="field full">
+          <label>Organisation Name <span>*</span></label>
+          <input type="text" id="org" placeholder="Your business name" required>
+        </div>
+        <div class="field full">
+          <label>Organisational Role / Business Industry <span>*</span></label>
+          <input type="text" id="role" placeholder="e.g. Owner · Retail" required>
+        </div>
+        <div class="field full">
+          <label>Additional Notes</label>
+          <textarea id="additionalNotes" placeholder="Tell us about your project, timeline, or any special requirements…"></textarea>
+        </div>
+
+      </div>
+
+      <hr class="pages-divider">
+
+      <div class="pages-header">
+        <div>
+          <div class="pages-title">Website Pages</div>
+          <div class="pages-subtitle">Add the pages you'd like on your website</div>
+        </div>
+      </div>
+
+      <div id="pagesContainer"></div>
+      <button type="button" class="addBtn" onclick="addPage()">＋ Add Page</button>
+
+      <button type="submit" class="submitBtn">Send Quote Request →</button>
+    </form>
+  </div>
 </div>
 
 <footer>
-<p>© 2026 F.R Web Developers</p>
+  <div class="footer-logo">F.R Web Developers</div>
+  <p>© 2026 F.R Web Developers</p>
 </footer>
 
+<script>
+let pageCount = 0;
+
+function addPage() {
+  pageCount++;
+  const container = document.getElementById('pagesContainer');
+  const div = document.createElement('div');
+  div.className = 'pageRow';
+  div.innerHTML = `
+    <div class="pageRow-fields">
+      <div>
+        <label>Page Type</label>
+        <select onchange="toggleCustom(this)">
+          <option>Index Page</option>
+          <option>Services Page</option>
+          <option>Products Page</option>
+          <option>Contact Page</option>
+          <option>About Page</option>
+          <option>Custom Page</option>
+        </select>
+      </div>
+      <div class="customInput">
+        <label>Custom Page Name</label>
+        <input type="text" placeholder="Enter page name">
+      </div>
+    </div>
+    <button type="button" class="deleteBtn" onclick="deletePage(this)" title="Remove">✕</button>
+  `;
+  container.appendChild(div);
+}
+
+function deletePage(btn) { btn.closest('.pageRow').remove(); }
+
+function toggleCustom(select) {
+  const customBox = select.closest('.pageRow-fields').querySelector('.customInput');
+  customBox.style.display = (select.value === 'Custom Page') ? 'block' : 'none';
+}
+
+function submitQuote(event) {
+  event.preventDefault();
+  const name    = document.getElementById('name').value.trim();
+  const surname = document.getElementById('surname').value.trim();
+  const email   = document.getElementById('email').value.trim();
+  const phone   = document.getElementById('phone').value.trim();
+  const org     = document.getElementById('org').value.trim();
+  const role    = document.getElementById('role').value.trim();
+  const notes   = document.getElementById('additionalNotes').value.trim();
+
+  if (!name || !surname || !email || !phone || !org || !role) {
+    alert('Please fill in all required fields.'); return;
+  }
+  if (!/^[^ ]+@[^ ]+\.[a-z]{2,}$/.test(email)) {
+    alert('Enter a valid email address.'); return;
+  }
+  const pages = document.querySelectorAll('.pageRow');
+  if (pages.length === 0) {
+    alert('Please add at least one page.'); return;
+  }
+  let pageList = '';
+  pages.forEach((row, i) => {
+    const select = row.querySelector('select').value;
+    const customInput = row.querySelector('.customInput input');
+    pageList += 'Page ' + (i + 1) + ': ' + (select === 'Custom Page' ? customInput.value.trim() : select) + '\n';
+  });
+
+  const subject = 'GET QUOTE';
+  const body =
+    'Client Quote Request\n\n' +
+    'Name: ' + name + ' ' + surname + '\n' +
+    'Email: ' + email + '\n' +
+    'Phone: ' + phone + '\n' +
+    'Organisation: ' + org + '\n' +
+    'Role/Type: ' + role + '\n\n' +
+    'Additional Notes:\n' + notes + '\n\n' +
+    'Requested Pages:\n' + pageList;
+
+  const link = 'https://mail.google.com/mail/?view=cm&fs=1&to=frwebbirth@gmail.com&su=' +
+    encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  window.open(link, '_blank');
+}
+</script>
 </body>
 </html>
